@@ -139,12 +139,12 @@ img,svg{display:block;max-width:100%}
   padding:26px;position:relative;
 }
 .seal{
-  width:88px;height:88px;border-radius:50%;overflow:hidden;
-  background:var(--card);border:3px solid var(--card);
-  outline:1px solid var(--line);outline-offset:-1px;
-  box-shadow:0 12px 28px rgba(27,26,23,.16);
+  width:76px;height:76px;border-radius:50%;background:var(--red);color:var(--card);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;
+  font-family:var(--serif);box-shadow:0 10px 24px rgba(216,68,43,.18);
 }
-.seal img{width:100%;height:100%;object-fit:cover;object-position:center 46%}
+.seal span{font-size:26px;font-weight:700;line-height:1}
+.seal small{font-family:var(--sans);font-size:7px;letter-spacing:.16em;opacity:.85}
 .info{margin-top:24px}
 .info>div{
   display:flex;justify-content:space-between;gap:18px;
