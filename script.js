@@ -4,6 +4,44 @@
     .map(a => document.querySelector(a.getAttribute('href')))
     .filter(Boolean);
 
+  /* ---- scroll reveal ---- */
+  const groups = [
+    ...document.querySelectorAll('.section-head'),
+    ...document.querySelectorAll('.case'),
+    ...document.querySelectorAll('.method-item'),
+    ...document.querySelectorAll('.skill-row'),
+    ...document.querySelectorAll('.about-grid > *'),
+    ...document.querySelectorAll('.contact > *')
+  ];
+  groups.forEach(el => el.classList.add('reveal'));
+
+  /* stagger items inside a few grouped blocks */
+  [
+    document.querySelector('.method-grid'),
+    document.querySelector('.skill-list'),
+    document.querySelector('.about-grid'),
+    document.querySelector('.contact')
+  ].filter(Boolean).forEach(group => {
+    [...group.children].forEach((el, i) => {
+      el.classList.add('reveal');
+      el.style.setProperty('--reveal-delay', `${i * 70}ms`);
+    });
+  });
+
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-in');
+        io.unobserve(entry.target);
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -8% 0px' });
+    groups.forEach(el => io.observe(el));
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-in'));
+  }
+
   const setActive = (id) => {
     navLinks.forEach(a => {
       a.classList.toggle('is-active', a.getAttribute('href') === `#${id}`);
