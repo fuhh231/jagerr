@@ -1,0 +1,149 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1230" width="1000" height="1230" role="img" aria-label="小红书自动化发布全流程工作流">
+  <style>
+    .t-title{font:700 24px "PingFang SC","Microsoft YaHei",system-ui,sans-serif;fill:#172033;}
+    .t-sub{font:400 13px "PingFang SC","Microsoft YaHei",system-ui,sans-serif;fill:#5b6475;}
+    .b-l1{font:700 15px "PingFang SC","Microsoft YaHei",system-ui,sans-serif;fill:#172033;}
+    .b-l2{font:400 11.5px "PingFang SC","Microsoft YaHei",system-ui,sans-serif;fill:#5b6475;}
+    .d-l1{font:700 14px "PingFang SC","Microsoft YaHei",system-ui,sans-serif;fill:#7a5200;}
+    .d-l2{font:400 11.5px "PingFang SC","Microsoft YaHei",system-ui,sans-serif;fill:#8a6a20;}
+    .lane{font:700 12.5px "PingFang SC","Microsoft YaHei",system-ui,sans-serif;letter-spacing:2px;}
+    .etag{font:600 11px "PingFang SC","Microsoft YaHei",system-ui,sans-serif;fill:#7c8798;}
+    .etag-r{font:700 11px "PingFang SC","Microsoft YaHei",system-ui,sans-serif;fill:#d14833;}
+    .lg{font:500 12px "PingFang SC","Microsoft YaHei",system-ui,sans-serif;fill:#5b6475;}
+    .foot{font:400 11.5px "PingFang SC","Microsoft YaHei",system-ui,sans-serif;fill:#94a0b0;}
+  </style>
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#7c8798"/>
+    </marker>
+    <marker id="arr" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#d14833"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1000" height="1230" fill="#ffffff"/>
+
+  <text class="t-title" x="70" y="52">小红书自动化发布 · 全流程工作流</text>
+  <text class="t-sub" x="70" y="78">从「一个主题」到「一篇笔记 + 数据回收」的端到端自动化链路 · Agent 决策层 / MCP 接口层 / CDP 执行层</text>
+
+  <!-- ===== 左侧分层标注 ===== -->
+  <text class="lane" x="80" y="337" transform="rotate(-90 80 337)" text-anchor="middle" fill="#6b73d6">决策层 · LLM</text>
+  <text class="lane" x="80" y="532" transform="rotate(-90 80 532)" text-anchor="middle" fill="#c0851f">接口层 · MCP</text>
+  <text class="lane" x="80" y="676" transform="rotate(-90 80 676)" text-anchor="middle" fill="#2f8f5b">执行层 · CDP</text>
+  <text class="lane" x="80" y="1030" transform="rotate(-90 80 1030)" text-anchor="middle" fill="#1f8f83">数据 · 沉淀</text>
+
+  <!-- ===== 连线（先画，压在节点下面） ===== -->
+  <g stroke="#7c8798" stroke-width="1.6" fill="none">
+    <path d="M540,174 V206" marker-end="url(#ar)"/>
+    <path d="M540,270 V284" marker-end="url(#ar)"/>
+    <path d="M540,368 V404" marker-end="url(#ar)"/>
+    <path d="M540,468 V500" marker-end="url(#ar)"/>
+    <path d="M540,564 V596" marker-end="url(#ar)"/>
+    <path d="M540,660 V692" marker-end="url(#ar)"/>
+    <path d="M540,756 V830" marker-end="url(#ar)"/>
+    <path d="M540,914 V950" marker-end="url(#ar)"/>
+    <path d="M540,1014 V1046" marker-end="url(#ar)"/>
+  </g>
+
+  <!-- 反馈回路 -->
+  <path d="M330,326 H180 V238 H340" stroke="#d14833" stroke-width="1.6" fill="none" marker-end="url(#arr)" stroke-dasharray="7 5"/>
+  <path d="M750,872 H900 V724 H740" stroke="#d14833" stroke-width="1.6" fill="none" marker-end="url(#arr)" stroke-dasharray="7 5"/>
+
+  <text class="etag" x="556" y="390">校验通过</text>
+  <text class="etag-r" x="252" y="254" text-anchor="middle">否 → 重新生成</text>
+  <text class="etag-r" x="824" y="805" text-anchor="middle">未确认 / 失败 → 重试</text>
+  <text class="etag" x="556" y="938">已发布</text>
+
+  <!-- ===== ① 输入 ===== -->
+  <g>
+    <rect x="340" y="110" width="400" height="64" rx="12" fill="#d7e8ff" stroke="#4c82d0" stroke-width="1.4"/>
+    <text class="b-l1" x="540" y="136" text-anchor="middle">① 输入：内容主题 + 风格</text>
+    <text class="b-l2" x="540" y="156" text-anchor="middle">运营指定的选题，或由 Agent 自主选题</text>
+  </g>
+
+  <!-- ===== ② LLM 生成 ===== -->
+  <g>
+    <rect x="340" y="206" width="400" height="64" rx="12" fill="#dfe2ff" stroke="#6b73d6" stroke-width="1.4"/>
+    <text class="b-l1" x="540" y="232" text-anchor="middle">② LLM 生成 标题 + 正文</text>
+    <text class="b-l2" x="540" y="252" text-anchor="middle">按内容类型选择 Prompt 模板（科普 / 种草 / 测评 / 吐槽）</text>
+  </g>
+
+  <!-- ===== 判断 1 ===== -->
+  <g>
+    <polygon points="540,284 750,326 540,368 330,326" fill="#fff0c2" stroke="#d99a2b" stroke-width="1.4"/>
+    <text class="d-l1" x="540" y="320" text-anchor="middle">校验：标题 ≤ 20 字</text>
+    <text class="d-l2" x="540" y="338" text-anchor="middle">且 正文 ≤ 1000 字？</text>
+  </g>
+
+  <!-- ===== ③ 配图 ===== -->
+  <g>
+    <rect x="340" y="404" width="400" height="64" rx="12" fill="#dfe2ff" stroke="#6b73d6" stroke-width="1.4"/>
+    <text class="b-l1" x="540" y="430" text-anchor="middle">③ 生成 / 检索配图</text>
+    <text class="b-l2" x="540" y="450" text-anchor="middle">按主题唯一化生成，自动去重、防止撞图</text>
+  </g>
+
+  <!-- ===== ④ MCP ===== -->
+  <g>
+    <rect x="340" y="500" width="400" height="64" rx="12" fill="#ffe6bd" stroke="#d99a2b" stroke-width="1.4"/>
+    <text class="b-l1" x="540" y="526" text-anchor="middle">④ MCP 标准接口调用</text>
+    <text class="b-l2" x="540" y="546" text-anchor="middle">initialize → notifications/initialized → tools/call</text>
+  </g>
+
+  <!-- ===== ⑤ CDP 填表 ===== -->
+  <g>
+    <rect x="340" y="596" width="400" height="64" rx="12" fill="#c9f0d9" stroke="#38a169" stroke-width="1.4"/>
+    <text class="b-l1" x="540" y="622" text-anchor="middle">⑤ Chrome CDP 自动填表</text>
+    <text class="b-l2" x="540" y="642" text-anchor="middle">上传配图 · 填标题 · 写正文+话题 · 触发 input 事件</text>
+  </g>
+
+  <!-- ===== ⑥ 发布 ===== -->
+  <g>
+    <rect x="340" y="692" width="400" height="64" rx="12" fill="#c9f0d9" stroke="#38a169" stroke-width="1.4"/>
+    <text class="b-l1" x="540" y="718" text-anchor="middle">⑥ 点击发布</text>
+    <text class="b-l2" x="540" y="738" text-anchor="middle">调用 xhs-publish-btn._onPublish()（按钮已改版为 Web Component）</text>
+  </g>
+
+  <!-- ===== 判断 2 ===== -->
+  <g>
+    <polygon points="540,830 750,872 540,914 330,872" fill="#fff0c2" stroke="#d99a2b" stroke-width="1.4"/>
+    <text class="d-l1" x="540" y="866" text-anchor="middle">⑦ 确认发布状态</text>
+    <text class="d-l2" x="540" y="884" text-anchor="middle">防止误判 · 避免重复发布</text>
+  </g>
+
+  <!-- ===== ⑧ 数据 ===== -->
+  <g>
+    <rect x="340" y="950" width="400" height="64" rx="12" fill="#c3f1ea" stroke="#1f9e8f" stroke-width="1.4"/>
+    <text class="b-l1" x="540" y="976" text-anchor="middle">⑧ 回收内容数据</text>
+    <text class="b-l2" x="540" y="996" text-anchor="middle">曝光 · 观看 · 点赞 · 收藏 · 涨粉</text>
+  </g>
+
+  <!-- ===== ⑨ 沉淀 ===== -->
+  <g>
+    <rect x="340" y="1046" width="400" height="64" rx="12" fill="#c3f1ea" stroke="#1f9e8f" stroke-width="1.4"/>
+    <text class="b-l1" x="540" y="1072" text-anchor="middle">⑨ 写入知识库 · 回流选题</text>
+    <text class="b-l2" x="540" y="1092" text-anchor="middle">沉淀模板与踩坑经验，优化下一轮内容策略</text>
+  </g>
+
+  <!-- ===== 图例 ===== -->
+  <g>
+    <rect x="180" y="1160" width="14" height="14" rx="4" fill="#d7e8ff" stroke="#4c82d0"/>
+    <text class="lg" x="200" y="1171">输入</text>
+
+    <rect x="290" y="1160" width="14" height="14" rx="4" fill="#dfe2ff" stroke="#6b73d6"/>
+    <text class="lg" x="310" y="1171">生成 / 决策</text>
+
+    <rect x="430" y="1160" width="14" height="14" rx="4" fill="#fff0c2" stroke="#d99a2b"/>
+    <text class="lg" x="450" y="1171">判断</text>
+
+    <rect x="520" y="1160" width="14" height="14" rx="4" fill="#ffe6bd" stroke="#d99a2b"/>
+    <text class="lg" x="540" y="1171">接口（MCP）</text>
+
+    <rect x="660" y="1160" width="14" height="14" rx="4" fill="#c9f0d9" stroke="#38a169"/>
+    <text class="lg" x="680" y="1171">执行（CDP）</text>
+
+    <rect x="790" y="1160" width="14" height="14" rx="4" fill="#c3f1ea" stroke="#1f9e8f"/>
+    <text class="lg" x="810" y="1171">数据 / 沉淀</text>
+  </g>
+
+  <text class="foot" x="70" y="1210">红色虚线 = 反馈回路（校验失败重写 / 发布未确认重试）</text>
+</svg>
