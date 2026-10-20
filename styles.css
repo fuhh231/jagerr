@@ -317,6 +317,28 @@ h1 .en{
   padding-top:10px;border-top:1px solid var(--line);
 }
 
+/* film still */
+.case-visual--film{
+  background:var(--dark);border-color:var(--dark);
+  min-height:420px;display:flex;align-items:flex-end;
+}
+.case-visual--film img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  transition:transform 1.1s var(--ease);
+}
+.case:hover .case-visual--film img{transform:scale(1.03)}
+.case-visual--film:after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(20,22,20,.78) 0%,rgba(20,22,20,.12) 48%,rgba(20,22,20,.28) 100%);
+}
+.film-meta{
+  position:relative;z-index:2;width:100%;padding:16px 18px;
+  display:flex;justify-content:space-between;
+  font-family:var(--mono);font-size:8px;letter-spacing:.2em;
+  color:rgba(247,245,240,.88);
+}
+
+
 /* case info */
 .case-lede{
   font-size:14px;line-height:1.9;color:var(--ink);
@@ -498,6 +520,7 @@ a:focus-visible,button:focus-visible{
   .flow-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}
   .flow-grid li{min-height:78px;padding:9px 8px}
   .case-visual--notes{min-height:360px;padding:24px}
+  .case-visual--film{min-height:240px}
   .notes-sheet{transform:rotate(-1deg)}
   .case-points li{grid-template-columns:58px minmax(0,1fr);gap:10px}
   .method-grid{grid-template-columns:1fr;gap:0}
