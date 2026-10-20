@@ -22,8 +22,14 @@ python -m http.server 8123 --bind 127.0.0.1
 - `script.js` — 滚动揭示、导航高亮、邮箱复制
 - `assets/付思源-简历.pdf` — 更新版简历
 - `assets/作品集-工作流专题.pdf` — 更新版作品集
+- `assets/《六可乐》AI短片项目-作品集.pdf` — 《六可乐》AI 短片项目作品集（5 页，封面为实验室场景图）
+- `assets/六可乐-封面.jpg` — 短片项目封面图（网页与 PDF 共用）
 - `assets/workflow.svg` — 工作流全图
 - `previews/` — 桌面端 / 移动端预览截图
+
+## 重新生成《六可乐》PDF
+
+PDF 源文件在 `_build/tarkov-print.html`（已加入 .gitignore，不参与部署）。用 Chrome 打开 `http://127.0.0.1:8123/_build/tarkov-print.html`，打印为 A4、无边距、勾选“背景图形”即可导出。注意：Chrome 的打印导出不会嵌入网页字体，所以排版统一使用系统字体（微软雅黑 / 宋体）。
 
 ## 部署
 
